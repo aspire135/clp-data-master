@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <style>
+        body{
+            font-size: 15px;
+        }
+        .title{
+            text-align: center;
+        }
+        .content{
+            margin:0 auto;
+            width: 400px;
+        }
+        .content .text{
+            text-indent: 2em;
+        }
+        .content .datetime{
+            text-align: right;
+        }
+    </style>
+</head>iii
+<body>
+<div>
+    <div class="view">
+        <h2 class="title">专报内容</h2>
+        <div class="content">
+            <p class="text">
+                ${content1}
+            </p>
+            <p class="text">
+                ${content2}
+            </p>
+            <p>
+                <img src="${nameImage}" height="50%" width="50%" >
+            </p>
+            <p class="text">
+                ${content3}
+            </p>
+            <p>
+                <img src="${problemImage}" height="50%" width="50%" >
+            </p>
+            <p class="text">
+                ${content4}
+            </p>
+            <p>
+                <img src="${industryImage}" height="50%" width="50%" >
+            </p>
+            <p class="text">
+                ${content5}
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yzu.clp.DATA_PERFORM.dao.UserDao">
+
+<!--    <select id="login" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--       SELECT *-->
+<!--       FROM `user`-->
+<!--       WHERE user_name = #{user_name}-->
+<!--    </select>-->
+
+
+<!--    <select id="getUserBasicInfo" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT `id`, nick_name, user_name FROM `user`-->
+<!--    </select>-->
+
+<!--    <select id="getUserInfoByCity" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM `user`-->
+<!--        WHERE city = #{city}-->
+<!--    </select>-->
+
+<!--    <select id="getUserInfoByCounty" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM `user`-->
+<!--        WHERE county = #{county}-->
+<!--    </select>-->
+
+<!--    <insert id="userRegister" parameterType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        INSERT INTO-->
+<!--        `user`-->
+<!--        (id, nick_name, user_name, password, salt, permission,gender,province, city, county, township, village, regioncode, unit, create_time, edit_time)-->
+<!--        VALUES-->
+<!--        (#{id},#{nick_name},#{user_name},#{password},#{salt},#{permission},#{gender},#{province},#{city},#{county},#{township},#{village}, #{regioncode}, #{unit}, #{create_time}, #{edit_time})-->
+<!--    </insert>-->
+
+<!--    <delete id="deleteById" parameterType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        DELETE FROM `user` WHERE id = #{id};-->
+<!--    </delete>-->
+
+<!--    <update id="updateUser" parameterType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        UPDATE `user`-->
+<!--        <trim prefix="SET" suffixOverrides="," suffix=" WHERE id = #{id}">-->
+<!--            <if test="nick_name != null">nick_name=#{nick_name} ,</if>-->
+<!--            <if test="user_name != null">user_name=#{user_name} ,</if>-->
+<!--            <if test="password != null">password=#{password} ,</if>-->
+<!--            <if test="salt != null">salt=#{salt} ,</if>-->
+<!--            <if test="permission != null">permission=#{permission} ,</if>-->
+<!--            <if test="gender != null">gender=#{gender} ,</if>-->
+<!--            <if test="province != null">province=#{province} ,</if>-->
+<!--            <if test="city != null">city=#{city} ,</if>-->
+<!--            <if test="county != null">county=#{county} ,</if>-->
+<!--            <if test="township != null">township=#{township} ,</if>-->
+<!--            <if test="village != null">village=#{village} ,</if>-->
+<!--            <if test="regioncode != null">regioncode=#{regioncode} ,</if>-->
+<!--            <if test="unit != null">unit=#{unit} ,</if>-->
+<!--            <if test="create_time != null">create_time=#{create_time} ,</if>-->
+<!--            <if test="edit_time !=null">edit_time=#{edit_time} ,</if>-->
+<!--        </trim>-->
+<!--    </update>-->
+
+<!--    <select id="findUserByUserName" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM `user` WHERE user_name = #{user_name}-->
+<!--    </select>-->
+
+<!--    <select id="getUserInfoById" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM `user`-->
+<!--        WHERE id = #{id}-->
+<!--    </select>-->
+
+
+<!--    <select id="getAllUser" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM `user`-->
+<!--    </select>-->
+<!--    <select id="getUserByProvince" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM `user`-->
+<!--        WHERE province = #{province}-->
+<!--    </select>-->
+<!--    <select id="getUserByCity" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM `user`-->
+<!--        WHERE city = #{city}-->
+<!--    </select>-->
+<!--    <select id="getUserByCounty" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM `user`-->
+<!--        WHERE county = #{county}-->
+<!--    </select>-->
+
+<!--    <select id="searchUserInfoById" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM `user`-->
+<!--        WHERE id = #{id}-->
+<!--    </select>-->
+
+
+<!--    <select id="searchAllUser" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM-->
+<!--        (SELECT * FROM `user`) AS m-->
+<!--        WHERE-->
+<!--        <foreach collection="search" item="item" open="" close="" separator="AND">-->
+<!--            m.${item.method} like '%${item.column}%'-->
+<!--        </foreach>-->
+<!--    </select>-->
+<!--    <select id="searchUserByProvince" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM-->
+<!--        (SELECT * FROM `user`-->
+<!--        WHERE province = #{province}) AS m-->
+<!--        WHERE-->
+<!--        <foreach collection="search" item="item" open="" close="" separator="AND">-->
+<!--            m.${item.method} like '%${item.column}%'-->
+<!--        </foreach>-->
+<!--    </select>-->
+<!--    <select id="searchUserByCity" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM-->
+<!--        (SELECT * FROM `user`-->
+<!--        WHERE city = #{city}) AS m-->
+<!--        WHERE-->
+<!--        <foreach collection="search" item="item" open="" close="" separator="AND">-->
+<!--            m.${item.method} like '%${item.column}%'-->
+<!--        </foreach>-->
+<!--    </select>-->
+<!--    <select id="searchUserByCounty" resultType="com.yzu.clp.CLP_PUBLIC.Entity.User">-->
+<!--        SELECT * FROM-->
+<!--        (SELECT * FROM `user`-->
+<!--        WHERE county = #{county}) AS m-->
+<!--        WHERE-->
+<!--        <foreach collection="search" item="item" open="" close="" separator="AND">-->
+<!--            m.${item.method} like '%${item.column}%'-->
+<!--        </foreach>-->
+<!--    </select>-->
+
+</mapper>

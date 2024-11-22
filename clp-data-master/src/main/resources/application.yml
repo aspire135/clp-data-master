@@ -1,0 +1,20 @@
+#  address: 0.0.0.0
+spring:
+  datasource:
+    name: connect
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  #session
+  session:
+    store-type: none
+
+  profiles:
+    active: gpu
+
+mybatis-plus:
+  type-aliases-package: com.yzu.clp.Entity
+  mapper-locations: classpath:mybatis/mapper/*Mapper.xml
+  #redis
+
+

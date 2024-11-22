@@ -1,0 +1,33 @@
+server:
+  port: 9999
+
+spring:
+  datasource:
+    url: jdbc:mysql://47.115.201.168:3306/data?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=false&useAffectedRows=true
+    username: root
+    password: bx172819.
+
+file:
+  csv:
+    save-path: E:\clp\upload\csv\
+  result:
+    save-path: E:\clp\upload\temp-task-result\
+  save-path: E:\clp\upload\bulletin\
+  json-url: localhost:9999
+
+  template:
+    html:
+      save-path: E:\clp\upload\template-html\
+    word:
+      save-path: E:\clp\upload\template-word\
+
+  image:
+    save-path: E:\clp\upload\image\
+
+debug: true
+
+# 设置 MyBatis 日志级别
+logging:
+  level:
+    com.yzu.clp.com.yzu.clp.DATA_PERFORM: debug
+

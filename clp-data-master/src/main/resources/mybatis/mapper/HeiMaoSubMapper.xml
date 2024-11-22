@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzu.clp.DATA_PERFORM.dao.HeiMaoSubDao">
+
+  <!-- 定义 ResultMap -->
+  <resultMap id="heiMaoSubMapper" type="com.yzu.clp.DATA_PERFORM.entity.HeiMaoSub">
+  <id property="num" column="num" />
+  <result property="title" column="title" />
+  <result property="name" column="name" />
+  <result property="problem" column="problem" />
+  <result property="need" column="need" />
+  <result property="yuan" column="yuan" />
+  <result property="progress" column="progress" />
+  <result property="d1" column="d1" jdbcType="LONGVARCHAR" />
+  <result property="d2" column="d2"  jdbcType="LONGVARCHAR"/>
+  <result property="time1" column="time1" />
+  <result property="time2" column="time2" />
+  <result property="url" column="url" />
+</resultMap>
+
+  <select id="countAll" resultType="java.lang.Integer" >
+    select count(num) from heimao_data
+  </select>
+
+  <select id="classifyNameByDate"   resultType="com.yzu.clp.DATA_PERFORM.vo.ClassifyNameVO" parameterType="com.yzu.clp.DATA_PERFORM.dto.PeriodDTO" >
+    SELECT COUNT(*) AS value,grouped_name as name
+    FROM (
+    SELECT
+    CASE
+    WHEN `name` LIKE '%京东%' THEN '京东'
+    WHEN `name` LIKE '%美团%' THEN '美团'
+    WHEN `name` LIKE '%抖音%' THEN '抖音'
+    WHEN `name` LIKE '%饿了么%' THEN '饿了么'
+    WHEN `name` LIKE '%拼多多%' THEN '拼多多'
+    WHEN `name` LIKE '%淘宝%' THEN '淘宝'
+    WHEN `name` LIKE '%天猫%' THEN '天猫'
+    WHEN `name` LIKE '%滴滴%' THEN '滴滴'
+    END AS grouped_name
+    FROM heimao_data
+    WHERE
+    DATE_FORMAT(time1, '%Y-%m-%d') >= #{startDate}
+    AND DATE_FORMAT(time1, '%Y-%m-%d') &lt;  #{endDate}
+    AND (`name` LIKE '%淘宝%' OR `name` LIKE '%美团%' OR `name` LIKE '%抖音%' OR `name` LIKE '%饿了么%' OR `name` LIKE '%京东%' OR `name` LIKE '%拼多多%' OR `name` LIKE '%滴滴%' OR `name` LIKE '%天猫%')
+    ) sub_query
+    GROUP BY grouped_name
+  </select>
+
+  <select id="countAllByDate" resultType="java.lang.Integer" >
+    select count(num) from heimao_data
+    WHERE
+      DATE_FORMAT(time1, '%Y-%m-%d') >= #{startDate}
+      AND DATE_FORMAT(time1, '%Y-%m-%d') &lt;  #{endDate}
+  </select>
+  <select id="getProblem" resultType="java.lang.String" parameterType="com.yzu.clp.DATA_PERFORM.dto.DateDTO">
+    select problem from heimao_data
+    where
+      DATE_FORMAT(time1, '%Y-%m-%d') >= #{startDate}
+      AND DATE_FORMAT(time1, '%Y-%m-%d') &lt;  #{endDate}
+  </select>
+  <select id="getWeeklyData" resultType="com.yzu.clp.DATA_PERFORM.entity.WeeklyData">
+    SELECT count(*) as value, DATE_FORMAT(time1, '%Y-%m-%d') as date
+    FROM heimao_data
+    WHERE
+      DATE_FORMAT(time1, '%Y-%m-%d') >= #{startDate}
+      AND DATE_FORMAT(time1, '%Y-%m-%d') &lt;  #{endDate}
+    GROUP BY date
+  </select>
+
+  <select id="countByDate" resultType="java.lang.Integer">
+    SELECT count(1) FROM heimao_data
+    WHERE DATE_FORMAT(time1, '%Y-%m-%d') >= #{startDate}
+      AND DATE_FORMAT(time1, '%Y-%m-%d') &lt;  #{endDate}
+  </select>
+  <select id="countByDaylyDate" resultType="java.lang.Integer">
+    SELECT count(1) FROM heimao_data
+    WHERE DATE_FORMAT(time1, '%Y-%m-%d') = #{currentDayDate}
+  </select>
+
+
+</mapper>

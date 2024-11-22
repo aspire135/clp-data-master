@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzu.clp.DATA_PERFORM.dao.PromptDao">
+
+
+    <select id="getPromblemTagsCount" resultType="com.yzu.clp.DATA_PERFORM.vo.ProblemTagsCountVO">
+        SELECT COUNT(*) as value,problem_tags FROM heimao_data
+        WHERE
+            DATE_FORMAT(time1, '%Y-%m-%d') >= #{startDate}
+          AND DATE_FORMAT(time1, '%Y-%m-%d') &lt;  #{endDate}
+        GROUP BY problem_tags
+    </select>
+    <select id="getIndustryTagsCount" resultType="com.yzu.clp.DATA_PERFORM.vo.IndustryTagsCountVO">
+        SELECT COUNT(*) as value,industry_tags FROM heimao_data
+        WHERE
+            DATE_FORMAT(time1, '%Y-%m-%d') >= #{startDate}
+          AND DATE_FORMAT(time1, '%Y-%m-%d') &lt;  #{endDate}
+        GROUP BY industry_tags
+
+    </select>
+
+</mapper>
